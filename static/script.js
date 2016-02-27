@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-  var src = "https://rawgit.com/gareins/ozbo.lt/master/static/";
   var showinner = function() { $(".inner").css("opacity", 1); };
 	  
   fontSpy('icomoon', {
@@ -20,9 +19,9 @@ $( document ).ready(function() {
     }
   });
   
-  $.get(src + "imgslist.json", function(data) {
+  $.get("static/imgslist.json", function(data) {
     var imgs = data["imgs"];
-    var img = src + "imgs/" + imgs[Math.floor(Math.random() * imgs.length)];
+    var img = "static/imgs/" + imgs[Math.floor(Math.random() * imgs.length)];
   
     $('<img/>').attr('src', img).load(function() {
       var img_ratio = this.naturalWidth / this.naturalHeight;
