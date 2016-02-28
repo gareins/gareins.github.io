@@ -45,7 +45,6 @@ ul {
   transition: 2s;
 }
 
-
 .outer {
     display: table;
     position: absolute;
@@ -72,6 +71,23 @@ ul {
     margin-right: 0.5rem;
     list-style: none;
     display: inline-block;
+}
+
+#imgloader {
+	visibility: hidden;
+	height: 0px;
+}
+
+/* Browser update */
+
+body .buorg {
+	color: white;
+	background: rgba(255, 255, 255, 0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+body #buorgclose {
+	top: 2px;
 }
 
 /* ICOMOON FONT */

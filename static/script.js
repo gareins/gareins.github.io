@@ -1,4 +1,9 @@
+// browser-update stuff...
+var $buoop = { c: 2, newwindow: true, url: "https://whatbrowser.org" };
+
+// actual stuff
 $( document ).ready(function() {
+  var src = ""; //"https://rawgit.com/gareins/gareins.github.io/master/";
   var showinner = function() { $(".inner").css("opacity", 1); };
 	  
   fontSpy('icomoon', {
@@ -19,18 +24,29 @@ $( document ).ready(function() {
     }
   });
   
-  $.get("static/imgslist.json", function(data) {
-    var imgs = data["imgs"];
-    var img = "static/imgs/" + imgs[Math.floor(Math.random() * imgs.length)];
+  function fix_resolutions() {
+    var img = $('#imgloader').get(0);
+    var img_ratio = img.naturalWidth / img.naturalHeight;
+    var wnd_ratio = window.innerWidth / window.innerHeight;
+    $("#back").css("background-size", img_ratio > wnd_ratio ? "auto 100%" : "100% auto");
+  }
   
-    $('<img/>').attr('src', img).load(function() {
-      var img_ratio = this.naturalWidth / this.naturalHeight;
-      var wnd_ratio = window.innerWidth / window.innerHeight;
+  function set_random_img() {
+    $.get( src + "static/imgslist.json", function(data) {
+      var imgs = data["imgs"];
+      var img = src + "static/imgs/" + imgs[Math.floor(Math.random() * imgs.length)];
       
-      $(this).remove();
-      $("#back").css("background-image", "url('" + img + "')")
-                .css("background-size", img_ratio > wnd_ratio ? "auto 100%" : "100% auto")
-                .css("opacity", 0.1);
+      $('#imgloader').attr('src', img).load(function() {
+        $("#back").css("opacity", 0)
+                  .delay(2000)
+                  .css("background-image", "url('" + img + "')")
+                  .css("opacity", 0.15);
+        fix_resolutions();
+      });
     });
-  });
+  }
+	  
+  set_random_img();
+  $(window).resize(fix_resolutions);
 });
+
