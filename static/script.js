@@ -37,11 +37,9 @@ $( document ).ready(function() {
       var img = src + "static/imgs/" + imgs[Math.floor(Math.random() * imgs.length)];
       
       $('#imgloader').attr('src', img).load(function() {
-        $("#back").css("opacity", 0)
-                  .delay(2000)
-                  .css("background-image", "url('" + img + "')")
-                  .css("opacity", 0.15);
+        $("#back").css("background-image", "url('" + img + "')")
         fix_resolutions();
+        $("#back").css("opacity", 0.15);
       });
     });
   }
