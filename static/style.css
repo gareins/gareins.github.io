@@ -10,7 +10,15 @@ h1 {
     font-size: 4rem;
     color: #ff9800;
     line-height: 95%;
+    margin: 2rem;
 }
+
+h2 {
+    font-size: 1rem;
+    color: #ff9800;
+    margin: 1rem;
+}
+  
 
 a {
     outline: 0;
@@ -27,6 +35,7 @@ li a:hover {
 }
 
 ul {
+    margin-top: 2rem;
     padding: 0;
 }
 
