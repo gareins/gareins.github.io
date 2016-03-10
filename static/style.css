@@ -134,6 +134,6 @@ body #buorgclose {
 .icon-stackoverflow:before {
     content: "\ead0";
 }
-.icon-blog:before {
-    content: "\eab8";
+.icon-cv:before {
+    content: "\e923";
 }
