@@ -1,8 +1,7 @@
 @import url(https://cdn.jsdelivr.net/normalize/3.0.3/normalize.min.css);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext);
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: Helvetica, Arial;
     background: rgba(69, 90, 100, 1);
 }
 
@@ -18,7 +17,6 @@ h2 {
     color: #ff9800;
     margin: 1rem;
 }
-  
 
 a {
     outline: 0;
@@ -111,6 +109,7 @@ body #buorgclose {
 [class^="icon-"], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
+    
     speak: none;
     font-style: normal;
     font-weight: normal;
