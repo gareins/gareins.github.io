@@ -41,7 +41,8 @@ function setfont() {
 
 // actual stuff
 $( document ).ready(function() {
-  $.getScript("https://cdn.rawgit.com/patrickmarabeas/jQuery-FontSpy.js/master/jQuery-FontSpy.js", setfont);
+  console.log(fontSpy);
+  $.getScript("static/jQuery-FontSpy.js", setfont);
   
   set_random_img();
   $(window).resize(fix_resolutions);
