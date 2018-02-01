@@ -41,7 +41,6 @@ function setfont() {
 
 // actual stuff
 $( document ).ready(function() {
-  console.log(fontSpy);
   $.getScript("static/jQuery-FontSpy.js", setfont);
   
   set_random_img();
