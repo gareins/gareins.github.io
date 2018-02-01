@@ -101,7 +101,7 @@ body #buorgclose {
 
 @font-face {
     font-family: 'icomoon';
-    src: url('https://cdn.rawgit.com/Keyamoon/IcoMoon-Free/master/Font/IcoMoon-Free.ttf');
+    src: url(IcoMoon-Min.ttf);
     font-weight: normal;
     font-style: normal;
 }
