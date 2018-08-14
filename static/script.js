@@ -1,22 +1,12 @@
 var default_opacity = 0.2;
 var animate_time = 1000;
+var num_images = 152;
 
 function fix_resolutions() {
   var img = $('#imgloader').get(0);
   var img_ratio = img.naturalWidth / img.naturalHeight;
   var wnd_ratio = window.innerWidth / window.innerHeight;
   $("#back").css("background-size", img_ratio > wnd_ratio ? "auto 100%" : "100% auto");
-}
-
-var imgs = null;
-function load_images(data) {
-  imgs = data["imgs"];
-  $('#imgloader').attr('src', '').load(set_random_img);
-  
-  select_random_img();
-  
-  $(window).resize(fix_resolutions);
-  window.setInterval(select_random_img, 10000);
 }
 
 function set_random_img() {
@@ -30,10 +20,14 @@ function set_random_img() {
 }
 
 function select_random_img() {
-  $('#imgloader').attr('src', "static/imgs/" + imgs[Math.floor(Math.random() * imgs.length)]);
+  $('#imgloader').attr('src', "static/imgs/" + (Math.floor(Math.random() * num_images) + 1) + ".jpg");
 }
 
 $( document ).ready(function() {
-  $.getJSON("static/imgslist.json", load_images);
+  $('#imgloader').attr('src', '').load(set_random_img);
   fix_resolutions();
+  select_random_img();
+  
+  $(window).resize(fix_resolutions);
+  window.setInterval(select_random_img, 10000);
 });
