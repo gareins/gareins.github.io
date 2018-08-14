@@ -47,6 +47,7 @@ ul {
   
   display: block;
   background-position: center center;
+  background-size:cover;
   opacity: 0;
 }
 
