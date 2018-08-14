@@ -28,8 +28,7 @@ li a {
 }
 
 li a:hover {
-    opacity: 0.9;
-    text-shadow: 0 0 1rem #523100;
+    opacity: 0.75;
 }
 
 ul {
@@ -49,7 +48,6 @@ ul {
   display: block;
   background-position: center center;
   opacity: 0;
-  transition: 2s;
 }
 
 .outer {
@@ -67,9 +65,7 @@ ul {
 
 .inner {
     margin-left: auto;
-    margin-right: auto; 
-    opacity: 0;
-    transition: opacity 500ms;
+    margin-right: auto;
 }
 
 .inner ul li {
@@ -81,8 +77,8 @@ ul {
 }
 
 #imgloader {
-	visibility: hidden;
-	height: 0px;
+  visibility: hidden;
+  height: 0px;
 }
 
 /* Browser update */
@@ -97,51 +93,13 @@ body #buorgclose {
 	top: 2px;
 }
 
-/* ICOMOON FONT */
+/* FontAwesome svgs */
 
-@font-face {
-    font-family: 'icomoon';
-    src: url(IcoMoon-Min.ttf);
-    font-weight: normal;
-    font-style: normal;
+.icon {
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
 }
-
-[class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
-    
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    font-size: 3rem;
-
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-
-.icon-mail:before {
-    content: "\ea86";
-}
-.icon-twitter:before {
-    content: "\ea96";
-}
-.icon-facebook:before {
-    content: "\ea91";
-}
-.icon-github:before {
-    content: "\eab0";
-}
-.icon-linkedin:before {
-    content: "\eac9";
-}
-.icon-stackoverflow:before {
-    content: "\ead0";
-}
-.icon-cv:before {
-    content: "\e923";
+.icon-svg {
+    fill: #D99126;
 }

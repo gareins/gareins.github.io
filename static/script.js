@@ -1,8 +1,5 @@
-// browser-update stuff...
-var $buoop = { c: 2, newwindow: true, url: "https://whatbrowser.org" };
-var src = ""; //"https://rawgit.com/gareins/gareins.github.io/master/";
-
-function showinner() { $(".inner").css("opacity", 1); }
+var default_opacity = 0.2;
+var animate_time = 1000;
 
 function fix_resolutions() {
   var img = $('#imgloader').get(0);
@@ -11,39 +8,32 @@ function fix_resolutions() {
   $("#back").css("background-size", img_ratio > wnd_ratio ? "auto 100%" : "100% auto");
 }
 
-function set_random_img() {
-  $.get( src + "static/imgslist.json", function(data) {
-    var imgs = data["imgs"];
-    var img = src + "static/imgs/" + imgs[Math.floor(Math.random() * imgs.length)];
-    
-    $('#imgloader').attr('src', img).load(function() {
-      $("#back").css("background-image", "url('" + img + "')")
-      fix_resolutions();
-      $("#back").css("opacity", 0.15);
-    });
-  });
-}
-
-function setfont() {
-  fontSpy('icomoon', {
-    success: showinner,
-    failure: function() {
-      $(".inner li").map(function() {
-        $(this).children()
-               .first()
-               .removeClass()
-               .text($(this).attr("title"));
-      });
-      showinner();
-    }
-  });
-}
-
-// actual stuff
-$( document ).ready(function() {
-  $.getScript("static/jQuery-FontSpy.js", setfont);
+var imgs = null;
+function load_images(data) {
+  imgs = data["imgs"];
+  $('#imgloader').attr('src', '').load(set_random_img);
   
-  set_random_img();
+  select_random_img();
+  
   $(window).resize(fix_resolutions);
-  $.getScript("https://browser-update.org/update.min.js");
+  window.setInterval(select_random_img, 10000);
+}
+
+function set_random_img() {
+  var img = $('#imgloader').attr('src');
+  var back = $('#back');
+  
+  back.animate({opacity: 0}, animate_time, 'swing', function() {
+    back.css("background-image", "url('" + img + "')");
+    back.animate({opacity: default_opacity}, animate_time);
+  });
+}
+
+function select_random_img() {
+  $('#imgloader').attr('src', "static/imgs/" + imgs[Math.floor(Math.random() * imgs.length)]);
+}
+
+$( document ).ready(function() {
+  $.getJSON("static/imgslist.json", load_images);
+  fix_resolutions();
 });
