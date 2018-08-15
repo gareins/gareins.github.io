@@ -1,5 +1,5 @@
 var default_opacity = 0.2;
-var animate_time = 0;
+var animate_time = 100;
 var default_animate_time = 1000;
 var num_images = 152;
 
@@ -19,7 +19,7 @@ function set_random_img() {
     fix_resolutions();
     back.animate({opacity: default_opacity}, animate_time);
 
-    if(animate_time == 0) { animate_time = default_animate_time; }
+    if(animate_time != default_animate_time) { animate_time = default_animate_time; }
   });
 }
 
