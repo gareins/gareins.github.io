@@ -15,6 +15,7 @@ function set_random_img() {
   
   back.animate({opacity: 0}, animate_time, 'swing', function() {
     back.css("background-image", "url('" + img + "')");
+    fix_resolutions();
     back.animate({opacity: default_opacity}, animate_time);
   });
 }
@@ -25,7 +26,6 @@ function select_random_img() {
 
 $( document ).ready(function() {
   $('#imgloader').attr('src', '').load(set_random_img);
-  fix_resolutions();
   select_random_img();
   
   $(window).resize(fix_resolutions);
