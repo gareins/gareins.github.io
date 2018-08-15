@@ -15,11 +15,11 @@ function set_random_img() {
   var back = $('#back');
   
   back.animate({opacity: 0}, animate_time, 'swing', function() {
-    if(animate_time == 0) { animate_time = default_animate_time; }
-
     back.css("background-image", "url('" + img + "')");
     fix_resolutions();
     back.animate({opacity: default_opacity}, animate_time);
+
+    if(animate_time == 0) { animate_time = default_animate_time; }
   });
 }
 
