@@ -28,7 +28,7 @@ function select_random_img() {
 }
 
 $( document ).ready(function() {
-  $('#imgloader').attr('src', '').load(set_random_img);
+  $('#imgloader').attr('src', '').on("load", set_random_img);
   select_random_img();
   
   $(window).resize(fix_resolutions);
