@@ -739,6 +739,14 @@ h2, h3 {
         fill: $chess;
     }
 }
+
+.giants {
+  text-align: left;
+  font-size: 1.3em;
+  ul {
+    list-style-type: disc;
+  }
+}
     
 
 /* COPY PASTE */
@@ -767,7 +775,6 @@ This is the parent `<div>` that contains the menu and the content area.
 /*
 The content `<div>` is where all your content goes.
 */
-
 
 .content {
     margin: 0 auto;
