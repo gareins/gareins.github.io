@@ -1,5 +1,13 @@
-hugo
 old
 sync
 /imgs
 *~
+
+.sass-cache
+.directory
+
+# Jekyll Specific
+_site/
+
+# Ruby
+Gemfile.lock
