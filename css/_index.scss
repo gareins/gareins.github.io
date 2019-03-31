@@ -1,0 +1,23 @@
+#index {
+    text-align: center;
+    padding-top: 100px;
+    
+    .gravatar {
+        width: 100%;
+		margin-top: -80px;
+		text-align: center;
+        
+        img {
+            border-radius: 50%;
+        }
+    }
+    
+    h1 {
+        color: $light-blue;
+        font-weight: 100;
+    }
+    
+    .content-panel:first-of-type {
+        border-bottom-width: 10px;
+    }
+}

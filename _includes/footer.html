@@ -1,0 +1,36 @@
+<div class="footer">
+  <div class="footer-left">
+    Thanks to <a href="https://twitter.com/_JacobTomlinson">Jacob Tomlinson</a>
+  </div>
+  <div class="footer-right">
+    &lt;/&gt; on <a href=\"https://github.com/gareins/gareins.github.io\">Github</a>
+  </div>
+</div>
+
+<img id="imgloader" src="static/favicon.ico" alt="invisible image loader"> 
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script defer src="{{ site.baseurl }}/js/script.js"></script>
+
+{% if page.content contains '<script type="math/tex' %}
+<!-- MathJax for LaTeX -->
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+{% endif %}
+
+{% if site.google_analytics %}
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '{{ site.google_analytics }}']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+{% endif %}

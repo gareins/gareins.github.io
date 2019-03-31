@@ -1,0 +1,10 @@
+<p class="links">
+  {% if site.email_scrambled %}<a href="mailto:{{ site.email_scrambled }}" title="email"><span class="fa fa-email">{% include svg/mail.svg %}</span></a>{% endif %}
+  {% if site.linkedin_link %}<a href="{{ site.linkedin_link }}" target="_new"><span class="fa fa-linkedin">{% include svg/linkedin.svg %}</span></a>{% endif %}
+  {% if site.facebook_link %}<a href="{{ site.facebook_link }}" target="_new"><span class="fa fa-facebook">{% include svg/fb.svg %}</span></a>{% endif %}
+  {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" target="_new"><span class="fa fa-github">{% include svg/github.svg %}</span></a>{% endif %}
+  {% if site.stackoverflow_link %}<a href="{{ site.stackoverflow_link }}" target="_new"><span class="fa fa-stack-overflow">{% include svg/so.svg %}</span></a>{% endif %}
+  {% if site.gitlab_username %}<a href="https://gitlab.com/{{ site.gitlab_username }}" target="_new"><span class="fa fa-gitlab">{% include svg/gitlab.svg %}</span></a>{% endif %}
+  {% if site.chess_link %}<a href="{{ site.chess_link }}" target="_new"><span class="fa fa-chess">{% include svg/chess.svg %}</span></a>{% endif %}
+  <a href="{{ site.baseurl }}/feed.xml" target="_new"><span class="fa fa-rss">{% include svg/rss.svg %}</span></a>
+</p>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+    <body>
+        <div id="layout">
+            {% include menu.html %}
+            <div id="main">
+                <div id="background"></div>
+                <div class="content" id="{{ page.wrap-id }}">
+                {{ content }}
+                </div>
+                {% include footer.html %}
+            </div>
+        </div>
+    </body>
+</html>

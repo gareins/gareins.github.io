@@ -1,0 +1,69 @@
+html {
+	height: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: 100;
+	background-color: $dark;
+	color: $white;
+	font-size: 16px;
+	height: 100%;
+	width: 100%
+}
+
+
+a, a:active {
+	color: $light-blue;
+	text-decoration: none;
+}
+
+a:hover {
+	color: $dark-blue;
+	text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+// Background
+
+#background {
+    background-size: 100% auto;
+    background-attachment: fixed;
+    opacity: 0.9;
+    
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#imgloader {
+    visibility: hidden;
+    height: 0px;
+}
+
+// Footer
+
+.footer-left {
+    float: left;
+}
+
+.footer-right {
+    float: right;
+}
+
+.footer {
+    margin: 0 auto 0 auto;
+    padding: 0 1em 1em 1em;
+    max-width: 680px;
+}

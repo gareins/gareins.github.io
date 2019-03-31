@@ -1,0 +1,36 @@
+# Site settings
+title: "Ožbolt Menegatti"
+email: ozbolt.menegatti@gmail
+email_scrambled: ozboltREMOVEME.menegatti@gmail.com
+description: "Programmer - Engineer - Sportsman - Pacifist - Chess enthusiast."
+baseurl: ""
+url: "http://ozbo.lt/"
+title_description: "Programmer - Engineer - Sportsman - Pacifist - Chess enthusiast"
+title_image: "/static/svica_jst.jpg"
+# google_analytics: "UA-20365477-4"
+github_repository: https://github.com/gareins/gareins.github.io
+post_limit: 5
+
+# Social usernames/URLs
+# twitter_username: _jacobtomlinson
+github_username:  gareins
+# instagram_username: 
+# reddit_username: 
+linkedin_link: https://si.linkedin.com/in/o%C5%BEbolt-menegatti-a2306a71
+stackoverflow_link: https://stackoverflow.com/users/1255969
+# xing_link:
+facebook_link: https://facebook.com/ozbolt.menegatti
+gitlab_username: gareins
+chess_link: https://lichess.org/@/gareins
+
+# Build settings
+markdown: kramdown
+sass: 
+    sass_dir: css
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+permalink: pretty
+exclude: [vendor]

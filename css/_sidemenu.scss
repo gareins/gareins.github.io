@@ -1,0 +1,124 @@
+/*
+The `#menu` `<div>` is the parent `<div>` that contains the `.pure-menu` that
+appears on the left side of the page.
+*/
+
+#menu {
+    margin-left: -$menu-width; /* "#menu" width */
+    width: $menu-width;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000; /* so the menu or its navicon stays above all content */
+    background: $darker;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    .pure-menu {
+        /*
+        Remove all background/borders, since we are applying them to #menu.
+        */
+        ul {
+            border: none;
+            background: transparent;
+        }
+
+        /*
+        Add that light border to separate items into groups.
+        */
+
+        ul, .menu-item-divided {
+            border-top: 1px solid $dark;
+        }
+    
+    
+        li a {
+            color: $light-medium;
+            border: none;
+            padding: 0.6em 0 0.6em 0.6em;
+    
+            /*
+            Change color of the anchor links on hover/focus.
+            */
+            :hover, a:focus {
+                background: $medium;
+            }
+        }
+    }
+
+    /*
+    This styles the selected menu item `<li>`.
+    */
+    .pure-menu-selected,
+    .pure-menu-heading {
+        background: $light-blue;
+    }
+        
+    /*
+    This styles a link within a selected menu item `<li>`.
+    */
+    .pure-menu-selected a {
+        color: $light;
+    }
+
+    /*
+    This styles the menu heading.
+    */
+    .pure-menu-heading {
+        font-size: 110%;
+        color: $light;
+        margin: 0;
+    }
+}
+
+/* -- Dynamic Button For Responsive Menu -------------------------------------*/
+
+/*
+The button to open/close the Menu is custom-made and not part of Pure. Here's
+how it works:
+*/
+
+/*
+`.menu-link` represents the responsive menu toggle that shows/hides on
+small screens.
+*/
+.menu-link {
+    position: fixed;
+    display: block; /* show this only on small screens */
+    top: 0;
+    left: 0;
+    background: $black;
+    background: rgba(0,0,0,0.7);
+    font-size: 10px; /* change this value to increase/decrease button size */
+    z-index: 10;
+    width: 2em;
+    height: auto;
+    padding: 2.1em 1.6em;
+
+    :hover, :focus {
+        background: $black;
+    }
+
+    span {
+        position: relative;
+        display: block;
+    }
+
+    span, span:before, span:after {
+        background-color: $white;
+        width: 100%;
+        height: 0.2em;
+    }
+    
+    span:before, span:after {
+        position: absolute;
+        margin-top: -0.6em;
+        content: " ";
+    }
+
+    span:after {
+        margin-top: 0.6em;
+    }
+}
+
