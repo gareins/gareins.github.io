@@ -13,14 +13,16 @@ layout: default
   <div class="article">
 
     <div itemscope itemtype="http://schema.org/Article">
-      {% if site.data.thumbnail[page.thumbnail] %}
-      <div class="thumb">
-        <img itemprop="image" src="{{ site.data.thumbnail[page.thumbnail] }}" alt="Thumbnail: {{ page.thumbnail }}" />
-      </div>
-      {% elsif page.thumbnail %}
-      <div class="thumb">
-        <i class="fa fa-{{ page.thumbnail }} fa-4x"></i>
-      </div>
+      {% if page.thumbnail %}
+        {% if page.thumbnail contains "." %}
+        <div class="thumb">
+          <img itemprop="image" src="{{ page.thumbnail }}" alt="Thumbnail: {{ page.thumbnail }}" />
+        </div>
+        {% else %}
+        <div class="thumb">
+          <i class="fa fa-{{ page.thumbnail }} fa-4x"></i>
+        </div>
+        {% endif %}
       {% endif %}
 
       <h1 class="heading" itemprop="name">{{ page.title }}</h1>
