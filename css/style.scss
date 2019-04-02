@@ -335,7 +335,7 @@
 	max-height: 100%;
 
 	h1, h2, h3, h4, h5, h6 {
-		font-family: 'Montserrat', sans-serif;
+		font-family: sans-serif;
 		margin-bottom: 10px;
 	}
 
@@ -433,7 +433,7 @@
 		}
 
 		.content {
-			font-size: 18px;
+			font-size: 15px;
 			line-height: 170%;
 			padding-left: 15px;
 			padding-right: 15px;
@@ -441,7 +441,7 @@
 			padding-bottom: 10px;
 
 			@media (min-width: $screen-sm-min) {
-				font-size: 24px;
+				font-size: 18px;
 				padding-left: 30px;
 				padding-right: 30px;
 				padding-top: 40px;
