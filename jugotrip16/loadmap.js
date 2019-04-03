@@ -1,4 +1,4 @@
-var nullpng = "/jugotrip/null.png";
+var nullpng = "/jugotrip16/null.png";
 function draw_gpx(gpx, desc, start, end, map, idx) {    
   var opts =  { startIconUrl: nullpng, endIconUrl: nullpng, shadowUrl: nullpng };
 
@@ -101,7 +101,7 @@ var readyStateCheckInterval = setInterval(function() {
 
     var loopidx = 0;
     for (let gpx of gpx_files) {
-      var gpx_src = "/jugotrip/gpx/" + gpx.src;
+      var gpx_src = "/jugotrip16/gpx/" + gpx.src;
       draw_gpx(gpx_src, gpx.desc, gpx.start, gpx._end, map, loopidx);
       loopidx++;
     }
