@@ -3,6 +3,8 @@ var animate_time = 1000;
 var default_animate_time = 1000;
 var num_images = 152;
 var skip_opacity_to_0 = true;
+var start = new Date();
+var cors_proxy = "https://cors-anywhere.herokuapp.com/";
 
 function menu_inout() {
     var layout   = $('#layout'),
@@ -80,12 +82,41 @@ function load_chess() {
     request.send();
 }
 
+function contact_stuff() {
+    $('#contact-send').click(function() {
+        if($('#contact-email').val().length > 0) {
+            return;
+        }
+        if(new Date() - start < 1000 * 10) { //minimal 10 seconds
+            return;
+        }
+        
+        var url = "http://maker.ifttt.com/trigger/contact/with/key/eOrfK0j7evebgwTmwSt3D-HngdZPB8tBQPblCcR2At4";
+        var obj = {
+            value1: $('#contact-email-real').val(),
+            value2: $('#contact-name').val(),
+            value3: $('#contact-message').val(),
+        };
+        
+        $.ajax({
+            type: 'POST',
+            url: cors_proxy + url,
+            data: JSON.stringify (obj),
+            success: function(d) { alert("Thank you!"); },
+            error: function(d) { alert("error sending :("); },
+            contentType: "application/json",
+            dataType: 'text'
+        });
+    });
+}
+
 $( document ).ready(function() {  
   $('#imgloader').attr('src', '').on("load", set_random_img);
   $(window).resize(fix_resolutions);
   
   select_random_img();
   menu_inout();
+  contact_stuff();
   
   if(window.location.pathname == "/") { // only on index page
     window.setInterval(select_random_img, 10000);
