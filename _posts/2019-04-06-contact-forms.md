@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Contact forms on static webpage
+title:      Contact forms on a static webpage
 date:       2019-04-06 10:30:00
 author:     Ožbolt Menegatti
 summary:    Another way of doing contact forms on a static web page
@@ -12,8 +12,6 @@ tags:
  - jekyll
  - ifttt
 ---
-
-# Contact forms on static webpage
 
 Static web pages are a great way of hosting your websites for free, but they come with a few caveats. One problem you have is that you can not just do a POST request to your server using a simple html form, which is how most contact forms are made. In order to fill the need of users that would like a contact form on their github pages websites, multiple solutions were created. One of these is [formspree.io](https://formspree.io). The way it works is you create a form with an action url containing your email. An example from their web page is:
 
