@@ -24,7 +24,7 @@ function menu_inout() {
     });
 
     content.click(function(e) {
-        if (menu.className.indexOf('active') !== -1) {
+        if (menu.hasClass('active')) {
             toggleAll(e);
         }
     });
