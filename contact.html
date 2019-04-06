@@ -1,0 +1,26 @@
+---
+layout: default
+wrap-id: contact
+---
+
+
+<h1 class="heading">Contact</h1>
+
+<div class="content-panel">
+    <form class="pure-form pure-form-stacked">
+        <fieldset>
+            <label for="contact-name">Name</label>
+            <input id="contact-name" type="text" placeholder="Name">
+            
+            <label for="contact-email">Email</label>
+            <input id="contact-email-real" type="email" placeholder="Email">
+            <span class="pure-form-message">This is a required field.</span>
+            
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" placeholder="Message"></textarea>
+            
+            <input id="contact-email" name="email" style="display: none;" type="email" />
+            <button type="button" id="contact-send" class="pure-button pure-button-primary">Send</button>
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,17 @@
+#contact {
+    text-align: center;
+    
+    input, textarea {
+        color: $dark;
+        margin: 0.25em auto;
+        width: 100%;
+        
+        @media (min-width: 20em) {
+            width: 70%;
+        }
+    }
+    
+    textarea {
+        height: 15em;
+    }
+}
