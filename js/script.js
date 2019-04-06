@@ -54,6 +54,25 @@ function select_random_img() {
   $('#imgloader').attr('src', "/static/imgs/" + (Math.floor(Math.random() * num_images) + 1) + ".jpg");
 }
 
+function load_chess() {    
+    var request = new XMLHttpRequest();
+    request.open('GET', 'https://chesspuzzle.net/Daily/Api', true);
+    request.onload = function () {
+        if (request.status >= 200 && request.status < 400) {
+            var result = JSON.parse(request.responseText);
+            document.getElementById("puzzleText").textContent = result.Text;
+            document.getElementById("puzzleLink").href = result.Link;
+            
+            var img = $("#puzzleImage");
+            img.attr('src', result.Image);
+            img.on('load', function() {
+                $('#chesspuzzle').css('opacity', 1);
+            });
+        }
+    };
+    request.send();
+}
+
 $( document ).ready(function() {  
   $('#imgloader').attr('src', '').on("load", set_random_img);
   select_random_img();
@@ -66,5 +85,6 @@ $( document ).ready(function() {
     window.setInterval(select_random_img, 10000);
   }
   
+  load_chess();
   hljs.initHighlightingOnLoad();
 });

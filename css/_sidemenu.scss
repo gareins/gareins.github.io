@@ -70,6 +70,29 @@ appears on the left side of the page.
         color: $light;
         margin: 0;
     }
+    
+    #chesspuzzle {
+        position: absolute;
+        bottom: 3%;
+        width: 75%;
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        opacity: 0;
+        transition: opacity 0.05s;
+        
+        img {
+            width: 100%;
+            filter: grayscale(80%);
+        }
+    }
+    
+    @media (max-height: $menu-width * 2) {
+        #chesspuzzle {
+            display: none;
+        }
+    }
 }
 
 /* -- Dynamic Button For Responsive Menu -------------------------------------*/
@@ -83,7 +106,7 @@ how it works:
 `.menu-link` represents the responsive menu toggle that shows/hides on
 small screens.
 */
-.menu-link {
+#menuLink {
     position: fixed;
     display: block; /* show this only on small screens */
     top: 0;
@@ -121,4 +144,3 @@ small screens.
         margin-top: 0.6em;
     }
 }
-
