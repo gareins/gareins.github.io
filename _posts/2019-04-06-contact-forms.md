@@ -15,7 +15,7 @@ tags:
 
 # Contact forms on static webpage
 
-Static web pages are a great way of hosting your websites for free, but they come with a few caviats. One problem you have is that you can not just do a POST request to your server using a simple html form, which is how most contact forms are made. In order to fill the need of users that would like a contact form on their github pages websites, multiple solutions were created. One of these is [formspree.io](https://formspree.io). The way it works is you create a form with an action url containing your email. An example from their web page is:
+Static web pages are a great way of hosting your websites for free, but they come with a few caveats. One problem you have is that you can not just do a POST request to your server using a simple html form, which is how most contact forms are made. In order to fill the need of users that would like a contact form on their github pages websites, multiple solutions were created. One of these is [formspree.io](https://formspree.io). The way it works is you create a form with an action url containing your email. An example from their web page is:
 
 ```html
 <form method="POST" 
@@ -28,7 +28,7 @@ Static web pages are a great way of hosting your websites for free, but they com
 
 This solution is free and it even provides spam protection, but unfortunately it does not allow AJAX requests and it forces a redirect to a 'thank you page' after the form is submitted. I propose a solution that does not offer spam protection, but allows AJAX requests and does not redirect to a thank you page.
 
-We will use the [IFTTT](https://ifttt.com/) (If This than That) platform. First step you need to do is create an applet where *this* (a trigger) is a webhook and *that* (action) is an email. What this does is creates a url, where a POST request sends an email to your inbox. You can costumize how the body of the message will look like, the way I have set it up is:
+We will use the [IFTTT](https://ifttt.com/) (If This than That) platform. First step you need to do is create an applet where *this* (a trigger) is a webhook and *that* (action) is an email. What this does is creates a url, where a POST request sends an email to your inbox. You can customize how the body of the message will look like, the way I have set it up is:
 
 {% highlight bash %}
 When: {{ "{{" }} OccurredAt }} <br>
@@ -45,9 +45,10 @@ curl -X POST \
   -H "Content-Type: application/json" \
   -d '{"value1":"v1", "value2":"v2", "value3":"v3"}' \
   $URL
+% Congratulations! You've fired the contact event
 {% endhighlight %}
 
-Ok, so this works nicely. There is just one more problem: the HTTP response from IFTTT does not contain CORS headers, which will cause your browser to emit a warning in the console. It could still work (it does currently for me), but this botters me, as I like my webpages to work without any warnings/errors. To resolve this issue, we can use a CORS proxy, which will forward your request to a given destination and then append CORS headers to the response. This will prevent those warnings from showing up. Github user *super3* maintains a list of active CORS proxies as a [Github gist](https://gist.github.com/super3/1afdc223e8c67097541b1293c6347599). When you are choosing the proxy for your needs, you need to use one, that supports POST requests. The final javascript code, that handles submit action is:
+Ok, so this works nicely. There is just one more problem: the HTTP response from IFTTT does not contain CORS headers, which will cause your browser to emit a warning in the console. It could still work (it does currently for me), but this bothers me, as I like my webpages to work without any warnings/errors. To resolve this issue, we can use a CORS proxy, which will forward your request to a given destination and then append CORS headers to the response. This will prevent those warnings from showing up. Github user *super3* maintains a list of active CORS proxies as a [Github gist](https://gist.github.com/super3/1afdc223e8c67097541b1293c6347599). When you are choosing the proxy for your needs, you need to use one, that supports POST requests. The final javascript code, that handles submit action is:
 
 {% highlight javascript %}
 $('#submit-button').click(function() {
@@ -67,7 +68,7 @@ $('#submit-button').click(function() {
 });
 {% endhighlight %}
 
-At the end I will try and address the problem with spam protection. With proposed solution, you are limited to a client side detection, so there is not much you can do. But there are at least [three ways](https://stackoverflow.com/questions/2230453/spam-prevention-reduction-contact-form) of doing it:
+At the end of this post I will try and address the problem with spam protection. With proposed solution, you are limited to a client side detection, so there is not much you can do. But there are at least [three ways](https://stackoverflow.com/questions/2230453/spam-prevention-reduction-contact-form) of trying to catch those kids:
 
 * dynamically determine POST url,
 * use a hidden input field, which only robots will fill up and
