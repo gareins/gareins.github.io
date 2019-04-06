@@ -856,4 +856,10 @@ The content `<div>` is where all your content goes.
     text-align: center;
 }
 
+#background {
+    transform: rotateZ(360deg);
+    opacity: 0;
+    transition: opacity 1s; //default_animate_time
+}
+
 

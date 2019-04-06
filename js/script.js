@@ -1,7 +1,8 @@
 var default_opacity = 0.2;
-var animate_time = 200;
+var animate_time = 1000;
 var default_animate_time = 1000;
 var num_images = 152;
+var skip_opacity_to_0 = true;
 
 function menu_inout() {
     var layout   = $('#layout'),
@@ -29,7 +30,6 @@ function menu_inout() {
     });
 }
 
-
 function fix_resolutions() {
   var img = $('#imgloader').get(0);
   var img_ratio = img.naturalWidth / img.naturalHeight;
@@ -40,14 +40,21 @@ function fix_resolutions() {
 function set_random_img() {
   var img = $('#imgloader').attr('src');
   var back = $('#background');
+  var current_animate_time = animate_time;
   
-  back.animate({opacity: 0}, animate_time, 'swing', function() {
-    back.css("background-image", "url('" + img + "')");
-    fix_resolutions();
-    back.animate({opacity: default_opacity}, animate_time, 'swing');
-
-    if(animate_time != default_animate_time) { animate_time = default_animate_time; }
-  });
+  if(skip_opacity_to_0) {
+    skip_opacity_to_0 = false;
+    animate_time = 0;
+  }
+  else {
+    back.css('opacity', 0);
+  }
+  
+  setTimeout(function() {
+      back.css("background-image", "url('" + img + "')");
+      back.css('opacity', default_opacity);
+      fix_resolutions();
+  }, animate_time);
 }
 
 function select_random_img() {
@@ -75,13 +82,12 @@ function load_chess() {
 
 $( document ).ready(function() {  
   $('#imgloader').attr('src', '').on("load", set_random_img);
-  select_random_img();
-  $.fx.interval = 120;
+  $(window).resize(fix_resolutions);
   
+  select_random_img();
   menu_inout();
   
-  $(window).resize(fix_resolutions);
-  if(window.location.pathname == "/") {
+  if(window.location.pathname == "/") { // only on index page
     window.setInterval(select_random_img, 10000);
   }
   
