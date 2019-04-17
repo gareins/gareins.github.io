@@ -46,7 +46,7 @@ function set_random_img() {
   
   if(skip_opacity_to_0) {
     skip_opacity_to_0 = false;
-    animate_time = 0;
+    current_animate_time = 0;
   }
   else {
     back.css('opacity', 0);
@@ -54,8 +54,8 @@ function set_random_img() {
   
   setTimeout(function() {
       back.css("background-image", "url('" + img + "')");
-      back.css('opacity', default_opacity);
       fix_resolutions();
+      back.css('opacity', default_opacity);
   }, animate_time);
 }
 
