@@ -65,7 +65,7 @@ function select_random_img() {
 
 function load_chess() {    
     var request = new XMLHttpRequest();
-    request.open('GET', 'https://chesspuzzle.net/Daily/Api', true);
+    request.open('GET', cors_proxy + 'https://chesspuzzle.net/Daily/Api', true);
     request.onload = function () {
         if (request.status >= 200 && request.status < 400) {
             var result = JSON.parse(request.responseText);
