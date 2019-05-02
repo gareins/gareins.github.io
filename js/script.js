@@ -73,10 +73,10 @@ function load_chess() {
             document.getElementById("puzzleLink").href = result.Link;
             
             var img = $("#puzzleImage");
-            img.attr('src', result.Image);
             img.on('load', function() {
                 $('#chesspuzzle').css('opacity', 1);
             });
+            img.attr('src', result.Image);
         }
     };
     request.send();
