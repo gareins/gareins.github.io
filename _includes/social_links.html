@@ -1,5 +1,5 @@
 <p class="links">
-  {% if site.email_scrambled %}<a href="mailto:{{ site.email_scrambled }}" title="email"><span class="fa fa-email">{% include svg/mail.svg %}</span></a>{% endif %}
+  {% if site.email_scrambled %}<a href="{{ site.base_url }}/contact/" title="email"><span class="fa fa-email">{% include svg/mail.svg %}</span></a>{% endif %}
   {% if site.linkedin_link %}<a href="{{ site.linkedin_link }}" target="_new"><span class="fa fa-linkedin">{% include svg/linkedin.svg %}</span></a>{% endif %}
   {% if site.facebook_link %}<a href="{{ site.facebook_link }}" target="_new"><span class="fa fa-facebook">{% include svg/fb.svg %}</span></a>{% endif %}
   {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" target="_new"><span class="fa fa-github">{% include svg/github.svg %}</span></a>{% endif %}
