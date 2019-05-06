@@ -5,6 +5,7 @@ date:       2014-06-10 12:31:19
 author:     Jacob Tomlinson
 summary:    See what the different elements looks like.
 categories: jekyll
+published:  false
 thumbnail:  cogs
 tags:
  - demo
