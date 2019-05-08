@@ -14,10 +14,12 @@ layout: default
         <ul class="articles">
     {% endif %}
 
-    <li>
-    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    <small>{{ post.date | date: "%B %-d, %Y" }}</small>
-    </li>
+    {% if post.hide != 1 %}
+      <li>
+      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      <small>{{ post.date | date: "%B %-d, %Y" }}</small>
+      </li>
+    {% endif %}
     
     {% if forloop.last %}
         </ul>

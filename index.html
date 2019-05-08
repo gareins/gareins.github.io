@@ -23,6 +23,7 @@ wrap-id: index
 
     <ul class="articles">
         {% for post in site.posts limit: site.post_limit %}
+        {% if post.hide == 1 %} {% continue %} {% endif %}
 
             <li>
                 <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
