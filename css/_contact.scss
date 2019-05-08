@@ -10,6 +10,10 @@
             width: 70%;
         }
     }
+
+    input[type="text"], input[type="email"], textarea {
+        background-color: $light;
+    }
     
     textarea {
         height: 15em;
