@@ -25,7 +25,7 @@ wrap-id: index
         {% for post in site.posts limit: site.post_limit %}
         {% if post.hide == 1 %} {% continue %} {% endif %}
 
-            <li>
+            <li style="word-break:break-all;">
                 <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
                 <small>{{ post.date | date: "%B %-d, %Y" }}</small>
             </li>
