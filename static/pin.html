@@ -1,0 +1,175 @@
+<html>
+    <head>
+        <style>
+            html, body {
+                height: 100%;
+                width: 100%;
+            }
+            body {
+                display: table;
+                margin: 0;
+            }
+            h1, h2 {
+                text-align: center;
+            }
+            #progress {
+                width: 100%;
+                border: 1ex black solid;
+                margin-bottom: 1em;
+                box-sizing: border-box;
+                text-align: center;
+                letter-spacing: 2ex;
+            }
+
+            #bottom, #top, #pinpad {
+                width: 100%;
+                display: table-row;
+            }
+
+            #pinpad {
+                height: 100%;
+                position: relative;
+            }
+            
+            .button {
+                font-family: monospace;
+                padding: 1em;
+                border: 1ex black solid;
+                display: inline;
+                cursor: pointer;
+            }
+
+            .button-dynamic {
+                position: absolute;
+            }
+
+            .button-reset {
+                display: inline-table;
+            }
+
+            .button-ok {
+                display: inline-table;
+                float: right;
+            }
+        </style>
+    </head>
+<body>
+    <div id="top">
+        <h1>
+            Mastercard
+        </h1>
+        <h2>
+            10.01 EUR
+        </h2>
+        <div id="progress">
+            ○○○○○○○○
+        </div>
+    </div>
+    <div id="pinpad">
+        <div class="button button-dynamic" onclick="onPinPad()">1</div>
+        <div class="button button-dynamic" onclick="onPinPad()">2</div>
+        <div class="button button-dynamic" onclick="onPinPad()">3</div>
+        <div class="button button-dynamic" onclick="onPinPad()">4</div>
+        <div class="button button-dynamic" onclick="onPinPad()">5</div>
+        <div class="button button-dynamic" onclick="onPinPad()">6</div>
+        <div class="button button-dynamic" onclick="onPinPad()">7</div>
+        <div class="button button-dynamic" onclick="onPinPad()">8</div>
+        <div class="button button-dynamic" onclick="onPinPad()">9</div>
+    </div>
+    <div id="bottom">
+        <div class="button button-reset" onclick="onReset()">Reset</div>
+        <div class="button button-ok">Ok</div>
+    </div>
+
+    <script>
+        let currentProgress = 0
+
+        function setProgress(progress) {
+            let content = "";
+            for(var i = 0; i < 8; i++) {
+                content += ((progress & Math.pow(2, i)) != 0) ? '●': '○';
+            }
+            document.getElementById("progress").textContent = content;
+            currentProgress = progress;
+        }
+
+        function randomProgress() {
+            while(true) {
+                let progress = Math.floor(Math.random() * 253.999 + 1)
+                if(progress != currentProgress) {
+                    setProgress(progress);
+                    break;
+                }
+            }
+        }
+
+        function clearProgress() {
+            setProgress(0);
+        }
+
+        function getDimensions() {
+            let bw = document.getElementsByClassName("button")[0].offsetWidth;
+            let bh = document.getElementsByClassName("button")[0].offsetHeight;
+            let pw = document.getElementById("pinpad").clientWidth;
+            let ph = document.getElementById("pinpad").clientHeight;
+
+            return [bw, bh, pw, ph]
+        }
+
+        function randomOffsets(element, container) {
+            let R = 1;
+
+            let line1Random = [Math.random() + R, Math.random() + R, Math.random() + R, Math.random() + R];
+            let line2Random = [Math.random() + R, Math.random() + R, Math.random() + R, Math.random() + R];
+            let line3Random = [Math.random() + R, Math.random() + R, Math.random() + R, Math.random() + R];
+
+            let sum1 = line1Random[0] + line1Random[1] + line1Random[2] + line1Random[3];
+            let sum2 = line2Random[0] + line2Random[1] + line2Random[2] + line2Random[3];
+            let sum3 = line3Random[0] + line3Random[1] + line3Random[2] + line3Random[3];
+
+            let maxSum = Math.max(sum1, sum2, sum3);
+            let ratio = (container - 3 * element) / maxSum;
+
+            let offsets = [
+                Math.floor(ratio * line1Random[0]), Math.floor(ratio * line1Random[1]), Math.floor(ratio * line1Random[2]), Math.floor(ratio * line1Random[3]),
+                Math.floor(ratio * line2Random[0]), Math.floor(ratio * line2Random[1]), Math.floor(ratio * line2Random[2]), Math.floor(ratio * line2Random[3]),
+                Math.floor(ratio * line3Random[0]), Math.floor(ratio * line3Random[1]), Math.floor(ratio * line3Random[2]), Math.floor(ratio * line3Random[3]),
+            ]
+
+            let result = [
+                offsets[0], offsets[0] + offsets[1] + element, offsets[0] + offsets[1] + offsets[2] + 2 * element,
+                offsets[3], offsets[3] + offsets[4] + element, offsets[3] + offsets[4] + offsets[5] + 2 * element,
+                offsets[6], offsets[6] + offsets[7] + element, offsets[6] + offsets[7] + offsets[8] + 2 * element
+            ]
+
+            return result;
+        }
+
+        function randomButtons() {
+            let dims = getDimensions();
+            let lefts = randomOffsets(dims[0], dims[2]);
+            let tops = randomOffsets(dims[1], dims[3]);
+
+            let topsPermutation = [0, 3, 6, 1, 4, 7, 2, 5, 8];
+
+            let buttons = document.getElementsByClassName("button-dynamic");
+            for(var i = 0; i < 9; i++) {
+                buttons[i].style.left = lefts[i];
+                buttons[topsPermutation[i]].style.top = tops[i];
+            }
+        }
+
+        function onPinPad() {
+            randomButtons();
+            randomProgress();
+        }
+
+        function onReset() {
+            randomButtons();
+            clearProgress();
+        }
+
+        onReset();
+    </script>
+</body>
+</html>
