@@ -4,7 +4,7 @@ email: site@ozbo.lt
 email_scrambled: siteREMOVEME@ozbo.lt
 description: "Father - Engineer - Sportsman - Pacifist - Chess enthusiast."
 baseurl: ""
-url: "http://ozbo.lt/"
+url: "https://ozbo.lt/"
 title_description: "Father - Engineer - Sportsman - Pacifist - Chess enthusiast"
 title_image: "/static/svica_jst.jpg"
 github_repository: https://github.com/gareins/gareins.github.io
