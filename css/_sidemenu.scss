@@ -74,23 +74,16 @@ appears on the left side of the page.
     #chesspuzzle {
         position: absolute;
         bottom: 3%;
-        width: 75%;
+        width: 90%;
         text-align: center;
         left: 0;
         right: 0;
         margin: 0 auto;
-        opacity: 0;
-        transition: opacity 0.05s;
+        aspect-ratio: 10/11;
         
         img {
             width: 100%;
             filter: grayscale(80%);
-        }
-    }
-    
-    @media (max-height: $menu-width * 2) {
-        #chesspuzzle {
-            display: none;
         }
     }
 }
