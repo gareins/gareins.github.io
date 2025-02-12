@@ -1,7 +1,7 @@
 var default_opacity = 0.2;
 var animate_time = 1000;
 var default_animate_time = 1000;
-var num_images = 150;
+var num_images = 149;
 var skip_opacity_to_0 = true;
 var start = new Date();
 var cors_proxy = "https://cors-anywhere.herokuapp.com/";
