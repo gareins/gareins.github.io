@@ -40,23 +40,22 @@ function fix_resolutions() {
 }
 
 function set_random_img() {
-  var img = $('#imgloader').attr('src');
-  var back = $('#background');
-  var current_animate_time = animate_time;
+    const img = $('#imgloader').attr('src');
+    const back = $('#background');
   
-  if(skip_opacity_to_0) {
-    skip_opacity_to_0 = false;
-    current_animate_time = 0;
-  }
-  else {
-    back.css('opacity', 0);
-  }
+    if(skip_opacity_to_0) {
+        skip_opacity_to_0 = false;
+    } else {
+        back.css('opacity', '0');
+    }
   
-  setTimeout(function() {
-      back.css("background-image", "url('" + img + "')");
-      fix_resolutions();
-      back.css('opacity', default_opacity);
-  }, animate_time);
+    setTimeout(() => {
+        back.css({
+            'background-image': `url(${img})`,
+            opacity: default_opacity
+        });
+        fix_resolutions();
+    }, animate_time);
 }
 
 function select_random_img() {

@@ -855,9 +855,9 @@ The content `<div>` is where all your content goes.
 }
 
 #background {
-    transform: rotateZ(360deg);
+    will-change: opacity;
+    backface-visibility: hidden;
+    transition: opacity 1s ease-out;
     opacity: 0;
-    transition: opacity 1s; //default_animate_time
 }
-
 
