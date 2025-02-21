@@ -25,10 +25,10 @@ var readyStateCheckInterval = setInterval(function() {
   if (document.readyState === "complete") {
     var map = L.map('mapid');
 
-    var osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-    var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 12, attribution: osmAttrib});
-    map.addLayer(osm);
+    var osmUrl='https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png';
+    var osmAttrib='<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+    map.addLayer(new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 12, attribution: osmAttrib}));
 
     var gpx_files = [{
       desc: "Dan 1, dopoldan",
