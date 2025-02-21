@@ -12,7 +12,7 @@ function draw_gpx(gpx, desc, start, end, map, idx) {
       marker_options: opts
     }
   ).on('loaded', function(e) {
-    roads.push({desc: desc, bound: e.target.getBounds(), start:start, end:end, dist: e.target.get_distance()});
+    roads.push({desc:desc, bound:e.target.getBounds(), start:start, end:end, dist:e.target.get_distance()});
     distance += e.target.get_distance();
   });      
   map.addLayer(gpxlayer);
@@ -35,68 +35,84 @@ var readyStateCheckInterval = setInterval(function() {
     var gpx_files = [{
       desc: "Dan 1, dopoldan",
       src: "day11.gpx",
-      start: "Ljubljana",}, {
-      _end: "Ilirska Bistrica",
+      start: "Ljubljana",
+      _end: "Ilirska Bistrica"
+      }, {
       desc: "Dan 1, popoldan",
       src: "day12.gpx",
       start: "Ilirska Bistrica",
-      _end: "Crikvenica",}, {
+      _end: "Crikvenica"
+      }, {
       desc: "Dan 2, popoldan",
       src: "day22.gpx",
       start: "Crikvenica",
-      _end: "Lovska koča na Velebitu",}, {
+      _end: "Lovska koča na Velebitu"
+      }, {
       desc: "Dan 3, dopoldan",
       src: "day31.gpx",
       start: "Lovska koča na Velebitu",
-      _end: "Otočac",}, {
+      _end: "Otočac"
+      }, {
       desc: "Dan 3, popoldan",
       src: "day32.gpx",
       start: "Otočac",
-      _end: "Gračac",}, {
+      _end: "Gračac"
+      }, {
       desc: "Dan 4, dopoldan",
       src: "day41.gpx",
       start: "Gračac",
-      _end: "Benkovac",}, {
+      _end: "Benkovac"
+      }, {
       desc: "Dan 4, popoldan",
       src: "day42.gpx",
       start: "Benkovac",
-      _end: "Vodice",}, {
+      _end: "Vodice"
+      }, {
       desc: "Dan 5, popoldan",
       src: "day52.gpx",
       start: "Vodice",
-      _end: "Podorljak, Rogoznica",}, {
+      _end: "Podorljak, Rogoznica"
+      }, {
       desc: "Dan 6, dopoldan",
       src: "day61.gpx",
       start: "Podorljak, Rogoznica",
-      _end: "Omiš",}, {
+      _end: "Omiš"
+      }, {
       desc: "Dan 6, popoldan",
       src: "day62.gpx",
       start: "Omiš",
-      _end: "Drvenik",}, {
+      _end: "Drvenik"
+      }, {
       desc: "Dan 7, dopoldan",
       src: "day71.gpx",
       start: "Drvenik",
-      _end: "Mostar",}, {
+      _end: "Mostar"
+      }, {
       desc: "Dan 7, popoldan",
       src: "day72.gpx",
       start: "Mostar",
-      _end: "Stolac",}, {
+      _end: "Stolac"
+      }, {
       desc: "Dan 8, dopoldan",
       src: "day81.gpx",
       start: "Stolac",
-      _end: "Trebinje",}, {
+      _end: "Trebinje"
+      }, {
       desc: "Dan 8, popoldan",
       src: "day82.gpx",
       start: "Trebinje",
-      _end: "Kameno nad Herceg Novim",}, {
+      _end: "Kameno nad Herceg Novim"
+      }, {
       desc: "Dan 9, dopoldan",
       src: "day91.gpx",
       start: "Kameno nad Herceg Novim",
-      _end: "Budva",}, {
+      _end: "Budva"
+      }, {
       desc: "Dan 10, popoldan",
       src: "dayA2.gpx",
       start: "Budva",
-      _end: "Podgorica"}
+      _end: "Podgorica"
+      }
     ];
 
     var loopidx = 0;
