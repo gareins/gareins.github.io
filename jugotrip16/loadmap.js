@@ -1,21 +1,21 @@
 var nullpng = "/jugotrip16/null.png";
 function draw_gpx(gpx, desc, start, end, map, idx) {    
-  var opts =  { startIconUrl: nullpng, endIconUrl: nullpng, shadowUrl: nullpng };
-
-  var gpxlayer = new L.GPX(gpx, 
-    {
+  new L.GPX(gpx, {
       async: true,
       polyline_options: {
         color: idx%2==0 ? "#00FFFF" : "#0000FF",
+        offset: 30,
         clickable: true
       },
-      marker_options: opts
+      markers: { 
+        startIcon: null, 
+        endIcon: null
+      }
     }
   ).on('loaded', function(e) {
     roads.push({desc:desc, bound:e.target.getBounds(), start:start, end:end, dist:e.target.get_distance()});
     distance += e.target.get_distance();
-  });      
-  map.addLayer(gpxlayer);
+  }).addTo(map);
 }
 
 var roads = new Array();
@@ -23,10 +23,8 @@ var distance = 0;
 
 var readyStateCheckInterval = setInterval(function() {
   if (document.readyState === "complete") {
-    $('head').append('<link rel="stylesheet" type="text/css" href="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.css">');
-    L.GPXTrackIcon = L.Icon.extend({  });
+    var map = L.map('mapid');
 
-    var map = L.map('mapid').setView([51.505, -0.09], 13);
     var osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
     var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 12, attribution: osmAttrib});
