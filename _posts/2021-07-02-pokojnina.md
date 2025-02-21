@@ -5,7 +5,7 @@ date:       2021-02-05 12:00:00
 author:     Ožbolt Menegatti
 summary:    Izračun za dodatno pokojninsko zavarovanje
 categories: pokojnina
-thumbnail:  /jugotrip16/logo.png
+thumbnail:  /static/pension.png
 tags:
  - pokojnina
  - javascript
