@@ -1,4 +1,3 @@
-var nullpng = "/jugotrip16/null.png";
 function draw_gpx(gpx, desc, start, end, map, idx) {    
   new L.GPX(gpx, {
       async: true,
