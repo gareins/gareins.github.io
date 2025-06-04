@@ -84,6 +84,5 @@ There are some details for this implementation:
 * Tailscale container presents a [socks5](https://en.wikipedia.org/wiki/SOCKS#SOCKS5) proxy with which you can use to connect to any node on the tailscale network. In contrast to SOCKS4, version 5 allows us to connect to UDP ports and we take advantage of that on our snmp-to-node3 container.
 * [Socat](https://man.archlinux.org/man/socat1.1.en) is a program that is described as a multiporpose relay and in the case of ssh-to-node2 listens on a TCP/10022 port and relays any traffic there to node2's TCP/22.
 * Socat by default does not provide socks5 support, so this implementation uses [**runsisi's** fork](https://github.com/runsisi/socat), it builds it with the help of [**andrew-d's** static build scripts](https://github.com/gareins/static-binaries-socat) and then [I build a docker image](https://github.com/gareins/Socat5Docker) that accepts the `SOCAT_CMD` environmental variable.
-
-
+* This solution does not care about the number of tailscale connected containers, so you can connect as many as you need.
 
