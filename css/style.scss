@@ -708,10 +708,6 @@ h2, h3 {
 		}
 	}
 
-	.fa-linkedin:hover {
-		fill: $linkedin;
-	}
-	
 	.fa-facebook:hover {
 		fill: $facebook;
 	}
@@ -738,6 +734,10 @@ h2, h3 {
     
     .fa-chess:hover {
         fill: $chess;
+    }
+
+    .fa-cv:hover {
+      fill: $cv;
     }
 }
 
