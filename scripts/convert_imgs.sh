@@ -1,16 +1,17 @@
 #!/bin/bash
 
-orig="original/"
+orig="orig/"
 out="new/"
-ctr=0
-cjpeg="../../gits/mozjpeg/build/cjpeg"
+ctr=199
+
+# Last ones were from 25.10
 
 for img in $(find $orig -type f)
 do
   echo $img
-  convert -type Grayscale -resize x800 -quality 100 $img "$out$ctr.notoptim.jpg"
-  $cjpeg -optimize -quality 80 "$out$ctr.notoptim.jpg" >"$out$ctr.jpg"
-  jpegoptim -s "$out$ctr.jpg"
+  magick "$img" -type Grayscale -resize x800 -quality 100 "$out$ctr.notoptim.jpg"
+  cp "$out$ctr.notoptim.jpg" "$out$ctr.jpg"
+  jpegoptim -s -m80 "$out$ctr.jpg"
 
   rm "$out$ctr.notoptim.jpg"
 
